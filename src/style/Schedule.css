@@ -1,0 +1,28 @@
+.boxCourses {
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.boxCourses div {
+  font-weight: 550;
+  font-style: italic;
+}
+.schedule-table button {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+  border: none;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 600;
+  z-index: 1000;
+}

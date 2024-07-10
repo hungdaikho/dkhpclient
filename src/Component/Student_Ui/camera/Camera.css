@@ -1,0 +1,19 @@
+.cameraBound {
+  width: 100%;
+  height: 400px;
+}
+.videoBound {
+  width: 100%;
+  height: calc(100% - 32px);
+}
+.videoFooter {
+  width: 100%;
+  text-align: center;
+  height: 32px;
+}
+video {
+  width: 100%;
+
+  height: 100%;
+  object-fit: contain;
+}

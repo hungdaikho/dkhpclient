@@ -1,0 +1,155 @@
+/* style_admin/Department.css */
+
+.department-form-wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.department-form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.create-department-form {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.department-input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.department-input:last-child {
+  margin-right: 0;
+}
+
+.button {
+  text-align: center;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.horizontal-line {
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.department-list {
+  margin-top: 20px;
+}
+
+.department-list-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.department-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.department-table th,
+.department-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.department-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.department-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.department-table tbody tr:hover {
+  background-color: #e9e9e9;
+}
+.edit-department-form {
+  display: flex;
+  align-items: center;
+}
+
+.edit-department-form li {
+  margin-right: 10px;
+}
+
+.edit-department-form form {
+  display: flex;
+  align-items: center;
+}
+
+.edit-department-form input {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.edit-department-form button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-department-form .submit-update {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-department-form .cancel-update {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.edit-department-form .submit-update:hover,
+.edit-department-form .cancel-update:hover {
+  padding: 10px 20px;
+  background-color: #567a0d;
+}
+
+.edit-department-form .submit-update,
+.edit-department-form .cancel-update {
+  transition: background-color 0.3s ease;
+}
+.update-department-form {
+  max-width: 800px; /* Điều chỉnh giá trị maxWidth theo ý muốn */
+}
+

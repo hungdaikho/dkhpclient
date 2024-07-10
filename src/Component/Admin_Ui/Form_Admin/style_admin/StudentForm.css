@@ -1,0 +1,155 @@
+/* style_admin/StudentForm.css */
+
+/* Base styles for the form */
+.ccc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.cc1,
+.cc2,
+.cc4,
+.cc5 {
+  width: 100%;
+
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+
+.cc3 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #e4e2eb;
+  padding: 8px;
+  text-align: left;
+}
+
+.student-input,
+.student-eamil-1 {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #0099ff;
+  /* color: white; */
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #007acc;
+}
+
+.notification {
+  margin-top: 10px;
+  color: green;
+}
+
+.update-button-123,
+.delete-button-123 {
+  width: 100%;
+  padding: 5px;
+  /* color: white; */
+  border: none;
+  cursor: pointer;
+}
+
+.update-button-123 {
+  background-color: #007bff;
+}
+
+.delete-button-123 {
+  background-color: #007bff;
+}
+
+.update-button-123:hover {
+  background-color: #20cfe6;
+}
+
+.delete-button-123:hover {
+  background-color: #20cfe6;
+}
+.acction-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .ccc {
+    padding: 10px;
+  }
+
+  .cc1,
+  .cc2,
+  .cc4,
+  .cc5 {
+    margin-bottom: 10px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 12px;
+  }
+
+  .student-input,
+  .student-eamil-1,
+  .submit-button,
+  .update-button-123,
+  .delete-button-123 {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .submit-button,
+  .update-button-123,
+  .delete-button-123 {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-input,
+  .student-eamil-1,
+  .submit-button,
+  .update-button,
+  .delete-button {
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  th,
+  td {
+    padding: 4px;
+  }
+  .submit-button,
+  .update-button-123,
+  .delete-button-123 {
+    padding: 4px 8px;
+  }
+}
+.edit-semester-form-123{
+  list-style-type: none;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  
+  
+}

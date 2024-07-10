@@ -1,0 +1,36 @@
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.sidebar ul li {
+  list-style: none;
+  font-size: 20px;
+  line-height: 21px;
+  padding: 20px 0px;
+
+}
+.main-content {
+  background-color: antiquewhite;
+  height: 100%;
+  width: 100%;
+  margin-left: 250px;
+  padding: 20px;
+  position: relative; 
+  z-index: 1; 
+  overflow-y: auto;
+}
+
+.menu-open .sidebar {
+  transform: translateX(0);
+}

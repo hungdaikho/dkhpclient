@@ -1,0 +1,62 @@
+.info-student-container {
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+}
+
+.info-student-container h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-student-container .info {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #555;
+}
+
+.circular-chart {
+  display: block;
+  max-width: 100%;
+  max-height: 250px;
+  margin: 20px auto;
+  fill: none;
+  position: relative;
+}
+
+.circle-bg {
+  stroke: #ddd;
+  stroke-width: 2.5;
+}
+
+.circle {
+  stroke: #007bff;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+  transition: stroke-dasharray 0.6s;
+}
+
+.percentage {
+  font-size: 4px;
+  fill: #000;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  color: #000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.circular-chart:hover .hover-content {
+  opacity: 1;
+}
