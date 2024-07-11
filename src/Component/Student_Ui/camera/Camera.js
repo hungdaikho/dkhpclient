@@ -3,7 +3,6 @@ import "./Camera.css";
 import { Button, Form, notification } from "antd";
 import axios from "axios";
 import * as faceapi from "face-api.js";
-import zIndex from "@mui/material/styles/zIndex";
 import moment from "moment";
 const Camera = (props) => {
   const [loading, setLoading] = useState(false);
@@ -13,11 +12,12 @@ const Camera = (props) => {
     initCamera();
     const loadModels = async () => {
       await Promise.all([
-        faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
         faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
         faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
         faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
-      ]);
+        faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
+      ]).then().catch((e)=>{console.log(e)})
+      console.log("LOAD DONE")
       getImageUrl();
     };
 
@@ -131,6 +131,7 @@ const Camera = (props) => {
           const data = {
             StudentId: props.studentId,
             CourseName: props.courseName,
+            nameImage: nameImage
           };
           const response = await axios.post(
             "http://localhost:3000/checkin",

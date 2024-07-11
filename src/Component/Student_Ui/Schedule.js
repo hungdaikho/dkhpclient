@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal, notification } from "antd";
+import { Modal, notification, Tooltip } from "antd";
 import Camera from "./camera/Camera";
 import History from "./history/History";
 import moment from "moment";
+import HistoryCheckin from "./HistoryCheckin";
 const Schedule = () => {
   const [studentId, setStudentId] = useState("");
   const [semesterId, setSemesterId] = useState("");
@@ -39,7 +40,6 @@ const Schedule = () => {
       console.error(error);
     }
   };
-
   const fetchSemesters = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/semesters/`);
@@ -91,6 +91,7 @@ const Schedule = () => {
             classroom: registration.classId.Classroom,
             startDate: registration.classId.startDate,
             endDate: registration.classId.endDate,
+            courseId: registration.courseId
           });
         }
       });
@@ -139,7 +140,7 @@ const Schedule = () => {
           lessonInDay[i] = false;
         }
       });
-    } catch (error) {}
+    } catch (error) { }
     return lessonInDay;
   };
   const renderCourse = () => {
@@ -199,8 +200,6 @@ const Schedule = () => {
       "http://localhost:3000/checkin/get-today",
       data
     );
-    console.log(data);
-    console.log(response);
     if (response.data.length > 0) {
       Modal.confirm({
         title: `Bạn đã điểm danh vào lúc ${moment(
@@ -209,8 +208,8 @@ const Schedule = () => {
         content: null,
         okText: "OK",
         cancelText: "Đóng",
-        onOk() {},
-        onCancel() {},
+        onOk() { },
+        onCancel() { },
       });
     } else {
       setOpenModal(true);
@@ -270,18 +269,20 @@ const Schedule = () => {
                             course.Monday?.rowSpan ? course.Monday.rowSpan : 1
                           }
                         >
-                          <div
-                            className="boxCourses"
-                            onClick={() => {
-                              setCourseName(course.Monday.className);
-                              setStartDate(course.Monday.startDate);
-                              onCheckin(course.Monday.className);
-                            }}
-                          >
-                            {course.Monday.className}
-                            <div>{course.Monday.classroom}</div>
-                            <div>{course.Monday.instructor}</div>
-                          </div>
+                          <Tooltip title={<HistoryCheckin CourseName={course.Monday.className} />}>
+                            <div
+                              className="boxCourses"
+                              onClick={() => {
+                                setCourseName(course.Monday.className);
+                                setStartDate(course.Monday.startDate);
+                                onCheckin(course.Monday.className);
+                              }}
+                            >
+                              {course.Monday.className}
+                              <div>{course.Monday.classroom}</div>
+                              <div>{course.Monday.instructor}</div>
+                            </div>
+                          </Tooltip>
                         </td>
                       )}
                       {!course.Tuesday ? null : course.Tuesday === true ? (
@@ -292,6 +293,7 @@ const Schedule = () => {
                             course.Tuesday?.rowSpan ? course.Tuesday.rowSpan : 1
                           }
                         >
+                          <Tooltip title={<HistoryCheckin CourseName={course.Tuesday.className} />}>
                           <div
                             className="boxCourses"
                             onClick={() => {
@@ -304,6 +306,7 @@ const Schedule = () => {
                             <div>{course.Tuesday.classroom}</div>
                             <div>{course.Tuesday.instructor}</div>
                           </div>
+                          </Tooltip>
                         </td>
                       )}
                       {!course.Wenesday ? null : course.Wenesday === true ? (
@@ -316,6 +319,7 @@ const Schedule = () => {
                               : 1
                           }
                         >
+                          <Tooltip title={<HistoryCheckin CourseName={course.Wenesday.className} />}>
                           <div
                             className="boxCourses"
                             onClick={() => {
@@ -328,6 +332,7 @@ const Schedule = () => {
                             <div>{course.Wenesday.classroom}</div>
                             <div>{course.Wenesday.instructor}</div>
                           </div>
+                          </Tooltip>
                         </td>
                       )}
                       {!course.Thursday ? null : course.Thursday === true ? (
@@ -340,6 +345,7 @@ const Schedule = () => {
                               : 1
                           }
                         >
+                          <Tooltip title={<HistoryCheckin CourseName={course.Thursday.className} />}>
                           <div
                             className="boxCourses"
                             onClick={() => {
@@ -352,6 +358,7 @@ const Schedule = () => {
                             <div>{course.Thursday.classroom}</div>
                             <div>{course.Thursday.instructor}</div>
                           </div>
+                          </Tooltip>
                         </td>
                       )}
                       {!course.Friday ? null : course.Friday === true ? (
@@ -362,6 +369,7 @@ const Schedule = () => {
                             course.Friday?.rowSpan ? course.Friday.rowSpan : 1
                           }
                         >
+                          <Tooltip title={<HistoryCheckin CourseName={course.Friday.className} />}>
                           <div
                             className="boxCourses"
                             onClick={() => {
@@ -374,6 +382,7 @@ const Schedule = () => {
                             <div>{course.Friday.classroom}</div>
                             <div>{course.Friday.instructor}</div>
                           </div>
+                          </Tooltip>
                         </td>
                       )}
                       {!course.Friday ? null : course.Friday === true ? (
@@ -386,6 +395,7 @@ const Schedule = () => {
                               : 1
                           }
                         >
+                          <Tooltip title={<HistoryCheckin CourseName={course.Saturday.className} />}>
                           <div
                             className="boxCourses"
                             onClick={() => {
@@ -398,6 +408,7 @@ const Schedule = () => {
                             <div>{course.Saturday.classroom}</div>
                             <div>{course.Saturday.instructor}</div>
                           </div>
+                          </Tooltip>
                         </td>
                       )}
                     </tr>
