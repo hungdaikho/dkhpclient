@@ -65,7 +65,6 @@ const StudentDashboard = () => {
       console.error(error);
     }
   };
-
   const fetchCoursesBySemester = async () => {
     try {
       const response = await axios.get(
@@ -246,7 +245,7 @@ const StudentDashboard = () => {
           setOpenModal(false);
         }}
       >
-        <Camera studentId={studentId} />
+        <Camera studentId={studentId} fullName={fullName} />
       </Modal>
       <div>
         <img

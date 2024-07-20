@@ -16,8 +16,12 @@ const Camera = (props) => {
         faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
         faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
         faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
-      ]).then().catch((e)=>{console.log(e)})
-      console.log("LOAD DONE")
+      ])
+        .then()
+        .catch((e) => {
+          console.log(e);
+        });
+      console.log("LOAD DONE");
       getImageUrl();
     };
 
@@ -131,7 +135,7 @@ const Camera = (props) => {
           const data = {
             StudentId: props.studentId,
             CourseName: props.courseName,
-            nameImage: nameImage
+            nameImage: nameImage,
           };
           const response = await axios.post(
             "http://localhost:3000/checkin",
@@ -185,7 +189,12 @@ const Camera = (props) => {
       const image = canvas.toDataURL("image/png");
       const formData = new FormData();
       const blob = base64ToBlob(image.split(",")[1]);
-      formData.append("image", blob, props.studentId);
+      let nameImage = props.fullName
+        .normalize("NFD") // Chuẩn hóa Unicode
+        .replace(/[\u0300-\u036f]/g, "") // Loại bỏ ký tự dấu
+        .replace(/\s+/g, "_") // Thay khoảng trắng bằng _
+        .replace(/[^\w\-]+/g, ""); // Loại bỏ các ký tự không phải chữ cái, số, _, -
+      formData.append("image", blob, nameImage);
       formData.append("studentId", props.studentId);
       const response = await axios.post(
         "http://localhost:3000/upload",
